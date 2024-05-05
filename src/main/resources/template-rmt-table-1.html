@@ -1,0 +1,415 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Image Grid</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <style>
+        .bg-primary {
+            background-color: #003366 !important;
+        }
+
+        .text-primary {
+            color: #003366 !important;
+        }
+
+        a.text-primary:hover,
+        a.text-primary:focus {
+            color: #003366 !important;
+        }
+    </style>
+</head>
+<body>
+<div class="bg-primary text-white text-center p-4" style="width:75%">
+    <h1 class="display-4" th:text="${companyName}"></h1>
+</div>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-8">
+            <h4 class="text-primary" th:text="${generalInfoLbl}"></h4>
+        </div>
+    </div>
+    <div class="row" style="margin-left: -28px">
+        <div class="col-md-8">
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h8 style="font-weight: bold;" th:text="${companyNameLbl}"></h8>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <span th:text="${companyName}"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h8 style="font-weight: bold;" th:text="${dovLbl}"></h8>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <span th:text="${dov}"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h8 style="font-weight: bold;" th:text="${tobLbl}"></h8>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <span th:text="${tob}"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h8 style="font-weight: bold;" th:text="${rfsvLbl}"></h8>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <span th:text="${rfsv}"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h8 style="font-weight: bold;" th:text="${svdbLbl}"></h8>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <span th:text="${svdb}"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h8 style="font-weight: bold;" th:text="${locLbl}"></h8>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <span th:text="${loc}"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h8 style="font-weight: bold;" th:text="${arrearsDPDLbl}"></h8>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <span th:text="${arrearsDPD}"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-8">
+            <h4 class="text-primary" th:text="${companyInfoLbl}"></h4>
+        </div>
+    </div>
+    <div class="row" style="margin-left: -28px">
+        <div class="col-md-8">
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h8 style="font-weight: bold;" th:text="${offcialPresentLbl}"></h8>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <span th:text="${offcialPresent}"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h8 style="font-weight: bold;" th:text="${addImageVideoLbl}"></h8>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-bordered table-dark" style="width:650px;">
+                            <thead>
+                            <tr class="bg-primary" style="background-color: #d9e7f5 !important;color: black">
+                                <th scope="col" th:text="${photoVideoLbl}"></th>
+                                <th scope="col" th:text="${addFilenameLbl}">Add filename</th>
+                                <th scope="col" th:text="${addDescLbl}">Add description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="bg-white">
+                                <td>
+                                    <img th:src="${image1}"
+                                         height="100" weight="300"/>
+                                </td>
+                                <td class="bg-white mt-3" style="align-content:center;word-break: break-word;">
+                                    <span class="pt-2 pb-3 pr-2 pl-2 rounded-circle p-2"
+                                          style="background-color: #d9e7f5 !important;color: black;border-radius: 10% !important;"
+                                          th:text="${image1Name}"></span>
+                                    <div class="pt-3">
+                                        <span style="color: black" th:text="${image1Time}"></span>
+                                    </div>
+                                    <div class="pt-3">
+                                        <span style="color: black;" th:text="${image1Location}"></span>
+                                    </div>
+                                </td>
+                                <td rowspan="2" style="background-color: #d9e7f5 !important;color: black;">
+                                    <span th:text="${image1Description}"></span>
+                                </td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td colspan="2">
+                                    <img th:src="${gmap1}"
+                                         height="200" width="400"/>
+                                </td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td>
+                                    <img th:src="${image2}"
+                                         height="100" weight="300"/>
+                                </td>
+                                <td class="bg-white mt-3" style="align-content:center;word-break: break-word;">
+                                    <span class="pt-2 pb-3 pr-2 pl-2 rounded-circle p-2"
+                                          style="background-color: #d9e7f5 !important;color: black;border-radius: 10% !important;"
+                                          th:text="${image2Name}"></span>
+                                    <div class="pt-3">
+                                        <span style="color: black" th:text="${image2Time}"></span>
+                                    </div>
+                                    <div class="pt-3">
+                                        <span style="color: black;" th:text="${image2Location}"></span>
+                                    </div>
+                                </td>
+                                <td rowspan="2" style="background-color: #d9e7f5 !important;color: black;">
+                                    <span th:text="${image2Description}"></span>
+                                </td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td colspan="2">
+                                    <img th:src="${gmap2}"
+                                         height="200" width="400"/>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h8 style="font-weight: bold;">Is the state of business operational?</h8>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <span>Yes</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h8 style="font-weight: bold;">Is the owner involved?</h8>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <span>Yes</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h8 style="font-weight: bold;">Is the Account behaviour satisfactory?</h8>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <span>Yes</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h8 style="font-weight: bold;">Is the company well maintained?</h8>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <span>Yes</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h8 style="font-weight: bold;">Is the office located inside?</h8>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <span>Yes</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h8 style="font-weight: bold;">Is the company name displayed on the unit?</h8>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <span>Yes</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h8 style="font-weight: bold;">Is the inventory available?</h8>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <span>Yes</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h8 style="font-weight: bold;">Is the Order book present?</h8>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <span>Yes</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <table class="mt-3" style="width:350px;border-spacing:5px">
+                    <thead>
+                    <tr>
+                        <th>
+                            <span style="font-weight: bold;" th:text="${areaLbl}">Area</span>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <span style="font-weight: bold;" th:text="${plotAreaLbl}">Plot Area</span>
+                        </td>
+                        <td>
+                            <span style="font-weight: bold;" th:text="${builtAreaLbl}">Built Area</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span th:text="${plotArea}">--</span>
+                        </td>
+                        <td>
+                            <span th:text="${builtArea}">--</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                    <tr></tr>
+                </table>
+            </div>
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h8 style="font-weight: bold;">Machinery / Production Line(Capacity Utilization Status)</h8>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-4">
+                        <span style="font-weight: bold;">Installed capacity</span>
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-weight: bold;">Utilised capacity</span>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-4">
+                        <span>---</span>
+                    </div>
+                    <div class="col-md-4">
+                        <span>---</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h8 style="font-weight: bold;">Status of electricity</h8>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <span>Kharama, DG Back-up</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h8 style="font-weight: bold;">Staff details</h8>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-4">
+                        <span style="font-weight: bold;">Management staff</span>
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-weight: bold;">Labour staff</span>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-4">
+                        <span>The only</span>
+                    </div>
+                    <div class="col-md-4">
+                        <span>I'm going</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <h8 style="font-weight: bold;">RM observation</h8>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <span>Tested negative for a flu vaccine</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
