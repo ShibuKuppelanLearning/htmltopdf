@@ -1,13 +1,16 @@
 package com.qdb.htmltopdf;
 
+import com.openhtmltopdf.outputdevice.helper.BaseRendererBuilder;
 import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
 import org.apache.commons.codec.binary.Base64;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -18,7 +21,8 @@ public class PdfGenerator {
     private static ImageHttpClient imageHttpClient = new ImageHttpClient();
 
     public static void main(String[] args) throws IOException {
-        TemplateEngine engine = new TemplateEngine();
+        arabicContent();
+        /*TemplateEngine engine = new TemplateEngine();
         Context context = new Context();
         context.setVariable("generalInfoLbl", "General Information");
 
@@ -76,12 +80,53 @@ public class PdfGenerator {
 
 
         String html = engine.process(Files.readString(Path.of(HTML_INPUT)), context);
-
+        System.out.println(html);
         try (OutputStream os = new FileOutputStream(PDF_OUTPUT)) {
             PdfRendererBuilder builder = new PdfRendererBuilder();
+            builder.useFont(new File("src/main/resources/ArslanWessamA.ttf"), "(A) Arslan Wessam A (A) Arslan Wessam A", 400, BaseRendererBuilder.FontStyle.NORMAL, true);
             builder.withHtmlContent(html, "/");
             builder.toStream(os);
             builder.run();
+        }*/
+    }
+
+    public static void arabicContent(){
+        try {
+            // HTML content with Arabic text
+            String htmlContent = "<!DOCTYPE html>" +
+                    "<html>" +
+                    "<head>" +
+                    "<meta charset=\"UTF-8\"/>" +
+                    "<style>" +
+                    "@font-face {" +
+                    "font-family: 'Amiri';" +
+                    "src: url('src/main/resources/Amiri.ttf') format('truetype');" +
+                    "}" +
+                    "body {" +
+                    "font-family: 'Amiri', serif;" +
+                    "}" +
+                    "</style>" +
+                    "</head>" +
+                    "<body>" +
+                    "<p>مرحبا بالعالم</p>" + // "Hello World" in Arabic
+                    "</body>" +
+                    "</html>";
+
+            // Output PDF file path
+            String outputPath = "output.pdf";
+
+            // Convert HTML to PDF
+            try (OutputStream os = new FileOutputStream(outputPath)) {
+                PdfRendererBuilder builder = new PdfRendererBuilder();
+                builder.useFastMode();
+                builder.withHtmlContent(htmlContent, new File(".").toURI().toString());
+                builder.toStream(os);
+                builder.run();
+            }
+
+            System.out.println("PDF generated successfully!");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
